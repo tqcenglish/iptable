@@ -1,10 +1,5 @@
 {
     "version": 0.1,
-    "bridges": [
-        {
-            "spawn": [ "/usr/local/lib/nodejs/node-v14.16.0-linux-x64/bin/node ./server/server.js" ]
-        }
-    ],
     "tools": {
         "iptable": {
             "label": "iptables",

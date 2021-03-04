@@ -11,7 +11,7 @@ http = cockpit.http({
 });
 
 $(document).ready(function(){
-	rules.showListWithPath("input", "filter");
+	rules.showListWithPath("f2b-voip", "filter");
 	
 	http.get("/chainlist").then((data) => {
 		var arr = JSON.parse(data);
@@ -21,7 +21,9 @@ $(document).ready(function(){
 			var index = item.indexOf(" ");
 			var rName = item.substr(0, index);
 			var rTable = item.substr(index+2, item.length - index - 3);
-			$("#customchains").append(window.tpl.customChain(rName, rTable));
+			if(rName != 'F2B-VOIP' && rName != 'F2B-SSHD'){
+				$("#customchains").append(window.tpl.customChain(rName, rTable));
+			}
 		}
 		$("#customchains").append(window.tpl.customChainAddNew);
 	});
@@ -349,7 +351,8 @@ var rules = {
 	},
 	
 	resetCounters: function() {
-		$.post("insert?t=" + table + "&c=" + channel, {rule: "-t " + table + " -Z " + channel.toUpperCase()}, function(data){
+		let url = `/insert?t=${table}&c=${channel}`;
+		http.post(url, {rule: `-t ${table} -Z ${channel.toUpperCase()}`}).then(data => {
 			if(data) {
 				if(data.substr(0, 1) === "[") {
 					parser.parseChannels(data);
@@ -588,7 +591,7 @@ var tools = {
 		if(!webSocket) {
 			var addr = window.location.toString().substr(7);
 			addr = addr.substr(0, addr.indexOf(":"));
-			addr = "ws://" + addr + ":8001";
+			addr = "ws://" + addr + ":8081";
 
 			webSocket = new WebSocket(addr);
 			webSocket.onopen = function(event) {

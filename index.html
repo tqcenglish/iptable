@@ -28,6 +28,12 @@
 		<div class="content">
 			<ul class="tabs mainmenu">
 				<li>
+					<a class="item" onclick="rules.showListWithPath('f2b-voip', 'filter');">F2B-VOIP</a>
+				</li>
+				<li>
+					<a class="item" onclick="rules.showListWithPath('f2b-sshd', 'filter');">F2B-SSHD</a>
+				</li>
+				<li>
 					<a class="item" onclick="rules.showListWithPath('input', 'filter');">INPUT</a>
 					<ul class="dropdown" style="display: none;">
 						<li><a class="item" onclick="rules.showListWithPath('input', 'filter');">filter</a></li>
@@ -83,12 +89,12 @@
 			</table>
 
 			<div class="tools">
-				<a class="button" href="/logout" id="logout" style="display: none;">Logout <img class="icon" src="./img/logout.png"/></a>
+				<!-- <a class="button" href="/logout" id="logout" style="display: none;">Logout <img class="icon" src="./img/logout.png"/></a> -->
 				<a class="button" onclick="tools.showTCPDump();" title="Show TCP dump console">TcpDump <img class="icon" src="./img/tcpdump.png"/></a>
 				<a class="button" onclick="tools.showLogs();" title="Show system logs">SysLogs <img class="icon" src="./img/logs.png"/></a>
-				<a class="button" onclick="tools.load();" title="Load rules from file">Load <img class="icon" src="./img/load.png"/></a>
-				<a class="button" onclick="tools.save();" title="Save rules into file">Save <img class="icon" src="./img/save.png"/></a>
-				<a class="button" onclick="tools.settingsDlg();" title="Show settings dialog">Settings <img class="icon" src="./img/settings.png"/></a>
+				<!-- <a class="button" onclick="tools.load();" title="Load rules from file">Load <img class="icon" src="./img/load.png"/></a> -->
+				<!-- <a class="button" onclick="tools.save();" title="Save rules into file">Save <img class="icon" src="./img/save.png"/></a> -->
+				<!-- <a class="button" onclick="tools.settingsDlg();" title="Show settings dialog">Settings <img class="icon" src="./img/settings.png"/></a> -->
 				<a class="button" onclick="rules.resetCounters();" title="Reset counters for current chain">Reset <img class="icon" src="./img/reset.png"/></a>
 			</div>
 

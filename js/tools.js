@@ -35,7 +35,8 @@ $(document).ready(function(){
 			$("#logout").show();
 		}
 
-		$("#theme").attr("href", "css/theme/" + _settings.theme + ".css");
+		//  ["DarkGray", "Navajo", "Silver"];
+		$("#theme").attr("href", "css/theme/" + 'Silver'+ ".css");
 		for(var i in _settings.themes) {
 			var theme = _settings.themes[i];
 			$("#themeSelector").append("<option " + (theme == _settings.theme ? "selected" : "") + ">" + theme + "</option>");
